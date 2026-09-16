@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Habita U",
+      "hasCanvas": false,
+      "bodyTextLen": 2330,
+      "bodyTextHash": "f5f403713d61da1ab17ab1369e5387d4c0ab9b3c6b769ac75a9a129953f6e951",
+      "bodyTextPrefix": "HabitaU VIVIENDA UNIVERSITARIA Entrar Cómo funciona Alojamientos",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Habita U",
+      "hasCanvas": false,
+      "bodyTextLen": 2330,
+      "bodyTextHash": "d2254b3c32bac2383c0557c05f796f67e7f5a798f81085d0d2b4cb2106742918",
+      "bodyTextPrefix": "HabitaU VIVIENDA UNIVERSITARIA Iniciar sesión Entrar Cómo funcio",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

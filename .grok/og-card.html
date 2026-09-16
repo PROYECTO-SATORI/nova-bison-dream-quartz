@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Habita U</title>
+<style>
+  @font-face {
+    font-family: "Fraunces";
+    font-weight: 600;
+    src: url("fonts/Fraunces-600.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Fraunces";
+    font-weight: 700;
+    src: url("fonts/Fraunces-700.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Source Sans 3";
+    font-weight: 600;
+    src: url("fonts/SourceSans3-600.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Source Sans 3";
+    font-weight: 700;
+    src: url("fonts/SourceSans3-700.ttf") format("truetype");
+  }
+  html, body {
+    margin: 0;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #f3f5fa;
+  }
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+  }
+  svg.scene { display: block; width: 1200px; height: 630px; }
+  .lockup {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transform: translateY(-18px);
+  }
+  .mark {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 2px 8px rgba(243, 245, 250, 0.9));
+  }
+  h1 {
+    margin: 0;
+    font-family: Fraunces, "Liberation Serif", serif;
+    font-weight: 700;
+    font-size: 104px;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    color: #10294d;
+    text-shadow:
+      0 1px 0 #f3f5fa,
+      0 0 14px rgba(243, 245, 250, 0.95),
+      0 0 28px rgba(243, 245, 250, 0.85),
+      0 0 48px rgba(243, 245, 250, 0.7);
+  }
+  .rule {
+    width: 168px;
+    height: 5px;
+    margin: 16px 0 12px;
+    background: #e85d04;
+    border-radius: 3px;
+  }
+  p.tag {
+    margin: 0;
+    font-family: "Source Sans 3", "Liberation Sans", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.42em;
+    text-indent: 0.42em;
+    color: #e85d04;
+    text-shadow: 0 0 12px rgba(243, 245, 250, 0.95);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+<svg class="scene" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#24449a"/>
+      <stop offset="28%" stop-color="#3d6bb8"/>
+      <stop offset="52%" stop-color="#8eb4d8"/>
+      <stop offset="72%" stop-color="#f0c48a"/>
+      <stop offset="100%" stop-color="#f6e6c8"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="18%" cy="16%" r="32%">
+      <stop offset="0%" stop-color="#ffe7a8" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#f6c56a" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f6c56a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="farMtn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a3568"/>
+      <stop offset="100%" stop-color="#10294d"/>
+    </linearGradient>
+    <linearGradient id="nearMtn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a4f96"/>
+      <stop offset="100%" stop-color="#1b3870"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f07828"/>
+      <stop offset="45%" stop-color="#e85d04"/>
+      <stop offset="100%" stop-color="#c44a03"/>
+    </linearGradient>
+    <linearGradient id="roofShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e85d04"/>
+      <stop offset="100%" stop-color="#9a3a02"/>
+    </linearGradient>
+    <linearGradient id="facade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="55%" stop-color="#f4efe6"/>
+      <stop offset="100%" stop-color="#e6dece"/>
+    </linearGradient>
+    <linearGradient id="street" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d2c4ae"/>
+      <stop offset="100%" stop-color="#b7a58d"/>
+    </linearGradient>
+    <pattern id="cobble" width="28" height="16" patternUnits="userSpaceOnUse">
+      <rect width="28" height="16" fill="#cbbba4"/>
+      <ellipse cx="7" cy="8" rx="6" ry="4.2" fill="#b9a78e" stroke="#a08d74" stroke-width="0.6"/>
+      <ellipse cx="21" cy="0" rx="6" ry="4.2" fill="#c3b196" stroke="#a08d74" stroke-width="0.6"/>
+      <ellipse cx="21" cy="16" rx="6" ry="4.2" fill="#c3b196" stroke="#a08d74" stroke-width="0.6"/>
+    </pattern>
+    <pattern id="tiles" width="12" height="8" patternUnits="userSpaceOnUse">
+      <rect width="12" height="8" fill="#e85d04"/>
+      <path d="M0 8 Q6 1 12 8" fill="none" stroke="#c44a03" stroke-width="1.1"/>
+      <path d="M0 4 Q6 -3 12 4" fill="none" stroke="#f07828" stroke-width="0.7" opacity="0.55"/>
+    </pattern>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#10294d" flood-opacity="0.18"/>
+    </filter>
+    <g id="win">
+      <rect width="18" height="26" rx="1.5" fill="#10294d"/>
+      <rect x="2" y="2.5" width="14" height="21" fill="#cfe0f2"/>
+      <path d="M9 2.5 v21 M2 13 h14" stroke="#10294d" stroke-width="1.3"/>
+    </g>
+    <g id="winSm">
+      <rect width="14" height="18" rx="1.2" fill="#10294d"/>
+      <rect x="1.6" y="2" width="10.8" height="14" fill="#cfe0f2"/>
+      <path d="M7 2 v14 M1.6 9 h10.8" stroke="#10294d" stroke-width="1.1"/>
+    </g>
+    <g id="doorOrange">
+      <path d="M1 50 V16 A13 13 0 0 1 27 16 V50 Z" fill="#e85d04"/>
+      <path d="M5 22 h7 v12 h-7 z M16 22 h7 v12 h-7 z" fill="#c44a03"/>
+      <circle cx="21" cy="36" r="1.6" fill="#f3e0b8"/>
+    </g>
+    <g id="doorNavy">
+      <path d="M1 50 V16 A13 13 0 0 1 27 16 V50 Z" fill="#10294d"/>
+      <path d="M5 22 h7 v12 h-7 z M16 22 h7 v12 h-7 z" fill="#24449a"/>
+      <circle cx="21" cy="36" r="1.6" fill="#e8c98a"/>
+    </g>
+    <g id="balcony">
+      <rect x="0" y="0" width="78" height="7" rx="1" fill="#5c3a22"/>
+      <rect x="2" y="7" width="74" height="16" fill="#8a5a38"/>
+      <g fill="#5c3a22">
+        <rect x="4" y="8" width="3" height="14"/>
+        <rect x="16" y="8" width="3" height="14"/>
+        <rect x="28" y="8" width="3" height="14"/>
+        <rect x="40" y="8" width="3" height="14"/>
+        <rect x="52" y="8" width="3" height="14"/>
+        <rect x="64" y="8" width="3" height="14"/>
+      </g>
+      <rect x="0" y="20" width="78" height="4" fill="#5c3a22"/>
+      <rect x="18" y="-8" width="16" height="8" rx="1" fill="#e85d04"/>
+      <rect x="44" y="-8" width="16" height="8" rx="1" fill="#e85d04"/>
+      <rect x="21" y="-14" width="10" height="7" rx="3" fill="#2f6b45"/>
+      <rect x="47" y="-14" width="10" height="7" rx="3" fill="#2f6b45"/>
+    </g>
+  </defs>
+
+  <!-- sky + sun -->
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <rect width="1200" height="630" fill="url(#sunGlow)"/>
+  <circle cx="196" cy="92" r="38" fill="#ffe7a3"/>
+  <circle cx="196" cy="92" r="28" fill="#fff3c8"/>
+
+  <!-- distant Andes -->
+  <path fill="url(#farMtn)" d="M0 330 L70 250 L130 292 L210 168 L270 248 L340 190 L410 270 L500 148 L560 230 L650 176 L740 260 L830 150 L910 240 L1000 172 L1080 250 L1200 210 L1200 400 L0 400 Z"/>
+  <path fill="#f3f5fa" d="M210 168 L232 210 L196 214 Z"/>
+  <path fill="#f3f5fa" d="M500 148 L528 196 L478 200 Z"/>
+  <path fill="#f3f5fa" d="M830 150 L854 198 L808 200 Z"/>
+  <path fill="#f3f5fa" d="M1000 172 L1018 206 L984 208 Z"/>
+  <path fill="url(#nearMtn)" opacity="0.92" d="M0 360 L90 300 L180 348 L280 268 L390 330 L520 280 L640 340 L760 270 L880 328 L1000 282 L1120 336 L1200 300 L1200 430 L0 430 Z"/>
+
+  <!-- plaza / street -->
+  <path d="M0 498 L1200 498 L1200 630 L0 630 Z" fill="url(#street)"/>
+  <path d="M0 498 L1200 498 L1200 630 L0 630 Z" fill="url(#cobble)" opacity="0.72"/>
+  <path d="M0 492 H1200 v8 H0 Z" fill="#9e8c74"/>
+
+  <!-- LEFT cluster of houses -->
+  <g filter="url(#soft)">
+    <!-- far left house -->
+    <g transform="translate(8,498)">
+      <rect x="10" y="-168" width="118" height="168" fill="url(#facade)"/>
+      <polygon points="4,-168 69,-208 134,-168" fill="url(#roof)"/>
+      <polygon points="69,-208 134,-168 128,-160 69,-196" fill="url(#roofShade)"/>
+      <rect x="4" y="-168" width="130" height="9" fill="#c44a03"/>
+      <use href="#win" x="28" y="-150"/>
+      <use href="#win" x="74" y="-150"/>
+      <use href="#win" x="28" y="-96"/>
+      <use href="#doorNavy" x="68" y="-50"/>
+    </g>
+    <!-- mid-left with balcony -->
+    <g transform="translate(112,498)">
+      <rect x="8" y="-214" width="168" height="214" fill="url(#facade)"/>
+      <polygon points="0,-214 92,-268 184,-214" fill="url(#roof)"/>
+      <polygon points="92,-268 184,-214 176,-204 92,-252" fill="url(#roofShade)"/>
+      <rect x="0" y="-218" width="184" height="10" fill="#c44a03"/>
+      <use href="#win" x="28" y="-196"/>
+      <use href="#win" x="78" y="-196"/>
+      <use href="#win" x="128" y="-196"/>
+      <use href="#balcony" x="48" y="-132"/>
+      <use href="#win" x="36" y="-78"/>
+      <use href="#doorOrange" x="92" y="-50"/>
+      <rect x="28" y="-78" width="18" height="26" rx="1.5" fill="#10294d"/>
+      <rect x="30" y="-75.5" width="14" height="21" fill="#cfe0f2"/>
+    </g>
+    <!-- near-left lower house -->
+    <g transform="translate(0,498)">
+      <rect x="236" y="-150" width="92" height="150" fill="#f7f1e6"/>
+      <polygon points="230,-150 282,-186 334,-150" fill="url(#roof)"/>
+      <rect x="230" y="-152" width="104" height="7" fill="#c44a03"/>
+      <use href="#winSm" x="250" y="-132"/>
+      <use href="#winSm" x="286" y="-132"/>
+      <use href="#doorNavy" x="262" y="-50"/>
+    </g>
+  </g>
+
+  <!-- RIGHT cluster + university tower -->
+  <g filter="url(#soft)">
+    <!-- right residence -->
+    <g transform="translate(868,498)">
+      <rect x="16" y="-200" width="156" height="200" fill="url(#facade)"/>
+      <polygon points="8,-200 94,-252 180,-200" fill="url(#roof)"/>
+      <polygon points="94,-252 180,-200 172,-190 94,-236" fill="url(#roofShade)"/>
+      <rect x="8" y="-204" width="172" height="10" fill="#c44a03"/>
+      <use href="#win" x="36" y="-180"/>
+      <use href="#win" x="86" y="-180"/>
+      <use href="#win" x="126" y="-180"/>
+      <use href="#balcony" x="48" y="-118"/>
+      <use href="#doorOrange" x="78" y="-50"/>
+      <use href="#win" x="36" y="-78"/>
+    </g>
+    <!-- far-right house -->
+    <g transform="translate(1028,498)">
+      <rect x="8" y="-166" width="150" height="166" fill="#f3eee3"/>
+      <polygon points="0,-166 83,-210 166,-166" fill="url(#roof)"/>
+      <polygon points="83,-210 166,-166 158,-158 83,-198" fill="url(#roofShade)"/>
+      <rect x="0" y="-168" width="166" height="8" fill="#c44a03"/>
+      <use href="#win" x="28" y="-148"/>
+      <use href="#win" x="78" y="-148"/>
+      <use href="#winSm" x="36" y="-96"/>
+      <use href="#doorNavy" x="86" y="-50"/>
+    </g>
+    <!-- university / church tower behind right cluster -->
+    <g transform="translate(780,498)">
+      <rect x="28" y="-292" width="72" height="292" fill="#f7f3ea"/>
+      <rect x="20" y="-300" width="88" height="14" fill="#e85d04"/>
+      <polygon points="16,-300 64,-348 112,-300" fill="url(#roof)"/>
+      <rect x="50" y="-348" width="28" height="22" fill="#f7f3ea"/>
+      <rect x="46" y="-370" width="36" height="8" fill="#e85d04"/>
+      <polygon points="46,-370 64,-392 82,-370" fill="#c44a03"/>
+      <circle cx="64" cy="-250" r="16" fill="#10294d"/>
+      <circle cx="64" cy="-250" r="11" fill="#cfe0f2"/>
+      <path d="M64 -250 v-8 M64 -250 h6" stroke="#10294d" stroke-width="1.8" stroke-linecap="round"/>
+      <use href="#winSm" x="57" y="-210"/>
+      <use href="#winSm" x="57" y="-160"/>
+    </g>
+  </g>
+
+  <!-- distant center buildings peeking in the plaza gap -->
+  <g opacity="0.95">
+    <g transform="translate(430,498)">
+      <rect x="0" y="-118" width="70" height="118" fill="#efe8db"/>
+      <polygon points="-6,-118 35,-148 76,-118" fill="#e85d04"/>
+      <use href="#winSm" x="12" y="-100"/>
+      <use href="#winSm" x="40" y="-100"/>
+    </g>
+    <g transform="translate(690,498)">
+      <rect x="0" y="-108" width="64" height="108" fill="#f4eee2"/>
+      <polygon points="-6,-108 32,-136 70,-108" fill="#c44a03"/>
+      <use href="#winSm" x="24" y="-92"/>
+    </g>
+  </g>
+
+  <!-- plaza fountain -->
+  <g transform="translate(600,548)" filter="url(#soft)">
+    <ellipse cx="0" cy="28" rx="78" ry="16" fill="#9a8870" opacity="0.55"/>
+    <ellipse cx="0" cy="18" rx="70" ry="14" fill="#e8ddd0"/>
+    <ellipse cx="0" cy="18" rx="56" ry="10" fill="#7ea8c9"/>
+    <rect x="-18" y="-18" width="36" height="32" rx="4" fill="#efe6d8"/>
+    <rect x="-28" y="-4" width="56" height="10" rx="3" fill="#e85d04"/>
+    <circle cx="0" cy="-28" r="10" fill="#cfe0f2"/>
+    <circle cx="0" cy="-40" r="5" fill="#a9c7e0"/>
+    <path d="M0 -40 q12 10 0 22 q-12 -10 0 -22" fill="#d7e8f6" opacity="0.7"/>
+  </g>
+
+  <!-- cypress trees -->
+  <g transform="translate(338,498)">
+    <rect x="-4" y="-28" width="8" height="28" fill="#5c3a22"/>
+    <ellipse cx="0" cy="-70" rx="16" ry="52" fill="#1f4a32"/>
+    <ellipse cx="0" cy="-92" rx="11" ry="34" fill="#2f6b45"/>
+  </g>
+  <g transform="translate(862,498)">
+    <rect x="-4" y="-26" width="8" height="26" fill="#5c3a22"/>
+    <ellipse cx="0" cy="-66" rx="15" ry="50" fill="#1f4a32"/>
+    <ellipse cx="0" cy="-88" rx="10" ry="32" fill="#2f6b45"/>
+  </g>
+
+  <!-- birds -->
+  <g fill="none" stroke="#10294d" stroke-width="1.6" stroke-linecap="round" opacity="0.55">
+    <path d="M430 128 q10 8 20 0"/>
+    <path d="M458 118 q8 6 16 0"/>
+    <path d="M720 136 q10 8 20 0"/>
+  </g>
+
+  <!-- warm grain -->
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="table" tableValues="0 0.045"/></feComponentTransfer>
+  </filter>
+  <rect width="1200" height="630" filter="url(#grain)"/>
+</svg>
+
+  <div class="lockup">
+    <svg class="mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="7" fill="#10294d"/>
+      <polygon points="16,6 27,16 5,16" fill="#f3f5fa"/>
+      <rect x="8" y="16" width="16" height="12" fill="#f3f5fa"/>
+      <rect x="13" y="20" width="6" height="8" fill="#e85d04"/>
+    </svg>
+    <h1>Habita U</h1>
+    <div class="rule"></div>
+    <p class="tag">VIVIENDA UNIVERSITARIA</p>
+  </div>
+</div>
+</body>
+</html>

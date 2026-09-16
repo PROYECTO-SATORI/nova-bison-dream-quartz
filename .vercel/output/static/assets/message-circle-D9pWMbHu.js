@@ -1,0 +1,1 @@
+import{n as e}from"./index-Ddeduw1c.js";var t=e(`message-circle`,[[`path`,{d:`M7.9 20A9 9 0 1 0 4 16.1L2 22Z`,key:`vv11sd`}]]);export{t};

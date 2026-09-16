@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="Habita U">
+  <rect width="16" height="16" rx="3.5" fill="#10294d"/>
+  <polygon points="8,2 15,8 1,8" fill="#f3f5fa"/>
+  <rect x="3" y="8" width="10" height="7" fill="#f3f5fa"/>
+  <rect x="6.5" y="10.5" width="3" height="4.5" fill="#e85d04"/>
+</svg>
